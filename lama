@@ -1,0 +1,7 @@
+Crea un file di faust in cui esponi, in forma di commento, i principi della sintesi sottrattiva. Realizza un esempio attraverso un filtraggio passa banda.
+import("stdfaust.lib");
+fcut= vslider("cut-off [style:knob][scale:exp]", 1000,20,20000,1);
+order= 8;
+process= no.noise : fi.lowpass(order,fcut) : fi.highpass(order,fcut) ;
+
+//la sintesi sottrattiva è una sorgente sonora in cui si trovano degli armonici e viene filtrata da un punto di vista spettrale
